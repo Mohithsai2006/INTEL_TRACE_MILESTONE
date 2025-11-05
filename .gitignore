@@ -1,0 +1,30 @@
+# Generic Node.js
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.env
+.env.local
+.env.*.local
+.DS_Store
+*.log
+
+# Frontend (Vite / React)
+frontend/node_modules/
+frontend/dist/
+frontend/.env*
+frontend/.eslintcache
+frontend/coverage/
+
+# Backend (Express)
+backend/node_modules/
+backend/.env
+backend/uploads/
+
+# IDE & OS files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
