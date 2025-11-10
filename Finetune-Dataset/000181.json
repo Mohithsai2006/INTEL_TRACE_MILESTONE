@@ -1,0 +1,86 @@
+{
+    "text": [
+        "Identify the entity utilizing a ghillie suit for concealment.",
+        "Locate the operator of the long-range precision tool.",
+        "Pinpoint the source of hostile overwatch.",
+        "What object in this grass is man-made and designed to look natural?",
+        "Locate the individual in the final firing position (FFP)."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "000181",
+            "points": [
+                [
+                    80.0,
+                    66.51162790697674
+                ],
+                [
+                    126.04651162790697,
+                    1.3953488372093026
+                ],
+                [
+                    126.04651162790697,
+                    1.3953488372093026
+                ],
+                [
+                    258.1395348837209,
+                    3.2558139534883725
+                ],
+                [
+                    321.3953488372093,
+                    96.27906976744187
+                ],
+                [
+                    341.8604651162791,
+                    170.23255813953492
+                ],
+                [
+                    451.1627906976744,
+                    255.34883720930233
+                ],
+                [
+                    521.8604651162791,
+                    355.8139534883721
+                ],
+                [
+                    639.0,
+                    399.34856990109597
+                ],
+                [
+                    639.0,
+                    521.8604651162791
+                ],
+                [
+                    638.1395348837209,
+                    622.3255813953489
+                ],
+                [
+                    148.3720930232558,
+                    621.3953488372093
+                ],
+                [
+                    73.48837209302326,
+                    356.74418604651163
+                ],
+                [
+                    104.18604651162792,
+                    290.2325581395349
+                ],
+                [
+                    68.37209302325579,
+                    160.93023255813955
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "000181.jpg",
+            "labels": [
+                "000181"
+            ]
+        }
+    ],
+    "imagePath": "000181.jpg",
+    "imageHeight": 640,
+    "imageWidth": 640,
+    "version": "5.9.1"
+}

@@ -1,0 +1,150 @@
+{
+    "text": [
+        "Identify the combatant using a ruined structure for cover and concealment.",
+        "Pinpoint the individual aiming a rifle from a prepared firing port in this brick wall.",
+        "Which dismounted element is engaging targets from an urban hide-site?",
+        "Tag the hostile personnel utilizing this destroyed building as a strongpoint.",
+        "Locate the source of small-arms fire from this rubble."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "target",
+            "points": [
+                [
+                    235.0,
+                    54.5
+                ],
+                [
+                    227.0,
+                    62.5
+                ],
+                [
+                    202.0,
+                    66.5
+                ],
+                [
+                    189.0,
+                    110.5
+                ],
+                [
+                    192.0,
+                    160.5
+                ],
+                [
+                    173.0,
+                    202.5
+                ],
+                [
+                    153.0,
+                    242.5
+                ],
+                [
+                    138.0,
+                    270.5
+                ],
+                [
+                    143.0,
+                    305.5
+                ],
+                [
+                    162.0,
+                    321.5
+                ],
+                [
+                    190.0,
+                    303.5
+                ],
+                [
+                    196.0,
+                    281.5
+                ],
+                [
+                    176.0,
+                    406.5
+                ],
+                [
+                    182.0,
+                    428.5
+                ],
+                [
+                    196.0,
+                    437.5
+                ],
+                [
+                    221.0,
+                    437.5
+                ],
+                [
+                    230.0,
+                    397.5
+                ],
+                [
+                    239.0,
+                    394.5
+                ],
+                [
+                    250.0,
+                    367.5
+                ],
+                [
+                    262.0,
+                    333.5
+                ],
+                [
+                    256.0,
+                    275.5
+                ],
+                [
+                    296.0,
+                    268.5
+                ],
+                [
+                    305.0,
+                    227.5
+                ],
+                [
+                    343.0,
+                    225.5
+                ],
+                [
+                    344.0,
+                    193.5
+                ],
+                [
+                    316.0,
+                    158.5
+                ],
+                [
+                    300.0,
+                    154.5
+                ],
+                [
+                    301.0,
+                    122.5
+                ],
+                [
+                    290.0,
+                    114.5
+                ],
+                [
+                    282.0,
+                    113.5
+                ],
+                [
+                    266.0,
+                    72.5
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "013864.jpg",
+            "labels": [
+                "target"
+            ]
+        }
+    ],
+    "imagePath": "013864.jpg",
+    "imageHeight": 640,
+    "imageWidth": 640,
+    "version": "5.9.1"
+}

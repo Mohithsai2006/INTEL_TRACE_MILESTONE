@@ -1,0 +1,154 @@
+{
+    "text": [
+        "Pinpoint the primary target of the kinetic strike that is now fully engulfed in fire.",
+        "Locate the asset that has been successfully neutralized and is experiencing a catastrophic thermal event.",
+        "Identify the destroyed platform that was positioned adjacent to the treeline and structure.",
+        "Which asset in this image is now classified as a total loss due to secondary explosions/fire?",
+        "Segment the object that was struck and is now the source of the large fire and smoke plume."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "Target",
+            "points": [
+                [
+                    246.78106508875734,
+                    392.35502958579883
+                ],
+                [
+                    272.2248520710059,
+                    374.60355029585804
+                ],
+                [
+                    316.01183431952666,
+                    345.01775147929
+                ],
+                [
+                    355.65680473372777,
+                    322.5325443786983
+                ],
+                [
+                    388.2011834319526,
+                    303.5976331360947
+                ],
+                [
+                    411.2781065088757,
+                    320.1656804733728
+                ],
+                [
+                    426.66272189349115,
+                    348.56804733727813
+                ],
+                [
+                    446.7810650887574,
+                    371.05325443786984
+                ],
+                [
+                    459.20710059171597,
+                    392.9467455621302
+                ],
+                [
+                    474.59171597633133,
+                    411.8816568047338
+                ],
+                [
+                    486.4260355029586,
+                    427.26627218934914
+                ],
+                [
+                    492.34319526627223,
+                    434.3668639053255
+                ],
+                [
+                    504.76923076923083,
+                    432.00000000000006
+                ],
+                [
+                    520.1538461538462,
+                    443.83431952662727
+                ],
+                [
+                    529.6213017751479,
+                    461.58579881656806
+                ],
+                [
+                    281.6923076923076,
+                    461.58579881656806
+                ],
+                [
+                    269.85798816568047,
+                    438.508875739645
+                ],
+                [
+                    255.6568047337278,
+                    414.2485207100592
+                ],
+                [
+                    250.92307692307688,
+                    400.6390532544379
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "008962.jpg",
+            "labels": [
+                "Target"
+            ]
+        },
+        {
+            "label": "Target",
+            "points": [
+                [
+                    309.27777777777777,
+                    164.22222222222223
+                ],
+                [
+                    323.1666666666667,
+                    118.66666666666667
+                ],
+                [
+                    441.5,
+                    174.22222222222223
+                ],
+                [
+                    429.8333333333333,
+                    215.33333333333331
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "008962.jpg",
+            "labels": [
+                "Target"
+            ]
+        },
+        {
+            "label": "Target",
+            "points": [
+                [
+                    528.1666666666667,
+                    307.0
+                ],
+                [
+                    538.7222222222223,
+                    250.33333333333331
+                ],
+                [
+                    663.7222222222223,
+                    286.44444444444446
+                ],
+                [
+                    658.1666666666667,
+                    339.22222222222223
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "008962.jpg",
+            "labels": [
+                "Target"
+            ]
+        }
+    ],
+    "imagePath": "008962.jpg",
+    "imageHeight": 464,
+    "imageWidth": 848,
+    "version": "5.9.1"
+}

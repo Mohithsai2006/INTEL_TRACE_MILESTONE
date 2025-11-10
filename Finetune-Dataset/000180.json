@@ -1,0 +1,66 @@
+{
+    "text": [
+        "Identify the entity utilizing a ghillie suit for concealment.",
+        "Locate the operator of the long-range precision tool.",
+        "Pinpoint the source of hostile overwatch.",
+        "What object in this grass is man-made and designed to look natural?",
+        "Locate the individual in the final firing position (FFP)."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "000180",
+            "points": [
+                [
+                    108.37209302325579,
+                    13.023255813953488
+                ],
+                [
+                    51.16279069767444,
+                    164.6511627906977
+                ],
+                [
+                    51.16279069767444,
+                    164.6511627906977
+                ],
+                [
+                    77.2093023255814,
+                    400.4651162790698
+                ],
+                [
+                    235.34883720930236,
+                    638.1395348837209
+                ],
+                [
+                    573.0232558139535,
+                    633.953488372093
+                ],
+                [
+                    420.4651162790698,
+                    229.76744186046514
+                ],
+                [
+                    332.5581395348837,
+                    171.16279069767444
+                ],
+                [
+                    268.37209302325584,
+                    35.348837209302324
+                ],
+                [
+                    206.51162790697674,
+                    6.9767441860465125
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "000180.jpg",
+            "labels": [
+                "000180"
+            ]
+        }
+    ],
+    "imagePath": "000180.jpg",
+    "imageHeight": 640,
+    "imageWidth": 640,
+    "version": "5.9.1"
+}

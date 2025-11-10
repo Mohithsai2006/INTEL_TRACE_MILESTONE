@@ -1,0 +1,74 @@
+{
+    "text": [
+        "Pinpoint the low-observable asset designed for deep-penetration strikes.",
+        "Identify the platform in the AO that relies on faceted surfaces to evade radar detection.",
+        "Which asset shown is a strategic, high-value, radar-evading platform?",
+        "Tag the airframe purpose-built for attacking high-value targets in heavily defended airspace.",
+        "Locate the legacy stealth-technology asset conducting operations over this terrain."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "target",
+            "points": [
+                [
+                    338.6290322580646,
+                    886.9032258064516
+                ],
+                [
+                    222.5,
+                    877.2258064516129
+                ],
+                [
+                    228.95161290322585,
+                    903.0322580645161
+                ],
+                [
+                    570.8870967741937,
+                    938.516129032258
+                ],
+                [
+                    728.9516129032256,
+                    919.1612903225806
+                ],
+                [
+                    628.9516129032259,
+                    835.2903225806451
+                ],
+                [
+                    428.95161290322585,
+                    867.5483870967741
+                ],
+                [
+                    403.1451612903227,
+                    828.8387096774194
+                ],
+                [
+                    364.4354838709678,
+                    828.8387096774194
+                ],
+                [
+                    364.4354838709678,
+                    854.6451612903226
+                ],
+                [
+                    319.2741935483871,
+                    825.6129032258065
+                ],
+                [
+                    277.3387096774193,
+                    825.6129032258065
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "019141.jpg",
+            "labels": [
+                "target"
+            ]
+        }
+    ],
+    "imagePath": "019141.jpg",
+    "imageHeight": 2048,
+    "imageWidth": 945,
+    "version": "5.9.1"
+}

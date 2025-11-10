@@ -1,0 +1,112 @@
+{
+    "text": [
+        "Pinpoint the assets that have established a concealed rally point in the tree line.",
+        "Locate the vehicles whose movement created the extensive tracks leading to this woodblock.",
+        "Identify the platforms currently clustered and static, making them a viable target for indirect fire.",
+        "Which assets are attempting to use the minimal foliage for aerial concealment?",
+        "Segment the mobile platforms that are currently staged, likely awaiting orders or resupply."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "Target",
+            "points": [
+                [
+                    671.6793893129772,
+                    443.89312977099235
+                ],
+                [
+                    670.5343511450382,
+                    434.7328244274809
+                ],
+                [
+                    675.4961832061068,
+                    430.1526717557252
+                ],
+                [
+                    681.6030534351145,
+                    425.57251908396944
+                ],
+                [
+                    690.0,
+                    429.7709923664122
+                ],
+                [
+                    690.0,
+                    436.64122137404576
+                ],
+                [
+                    684.6564885496183,
+                    444.2748091603053
+                ],
+                [
+                    676.6412213740458,
+                    446.1832061068702
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "008927.jpg",
+            "labels": [
+                "Target"
+            ]
+        },
+        {
+            "label": "Target",
+            "points": [
+                [
+                    920.5343511450382,
+                    411.0687022900763
+                ],
+                [
+                    918.6259541984733,
+                    405.34351145038164
+                ],
+                [
+                    921.2977099236641,
+                    397.70992366412213
+                ],
+                [
+                    921.6793893129772,
+                    392.36641221374043
+                ],
+                [
+                    927.0229007633587,
+                    388.16793893129767
+                ],
+                [
+                    934.6564885496183,
+                    389.6946564885496
+                ],
+                [
+                    937.7099236641221,
+                    393.89312977099235
+                ],
+                [
+                    937.7099236641221,
+                    399.23664122137404
+                ],
+                [
+                    933.8931297709923,
+                    404.96183206106866
+                ],
+                [
+                    933.5114503816794,
+                    408.77862595419845
+                ],
+                [
+                    929.3129770992366,
+                    412.9770992366412
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "008927.jpg",
+            "labels": [
+                "Target"
+            ]
+        }
+    ],
+    "imagePath": "008927.jpg",
+    "imageHeight": 720,
+    "imageWidth": 1280,
+    "version": "5.9.1"
+}

@@ -1,0 +1,74 @@
+{
+    "text": [
+        "Identify the platform that is currently deploying countermeasures to defeat an infrared-guided threat.",
+        "Which asset is attempting to break missile lock by dispensing a large number of flares?",
+        "Pinpoint the close-air-support platform that is taking defensive measures while egressing the target area.",
+        "What asset is the source of the thermal decoy pattern?",
+        "Locate the fixed-wing platform that is actively defending itself against MANPADS or AAMs."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "target",
+            "points": [
+                [
+                    1726.3333333333335,
+                    2821.4444444444443
+                ],
+                [
+                    1776.3333333333335,
+                    2782.5555555555557
+                ],
+                [
+                    1804.1111111111113,
+                    2899.222222222222
+                ],
+                [
+                    1970.7777777777778,
+                    2921.4444444444443
+                ],
+                [
+                    1993.0,
+                    2949.222222222222
+                ],
+                [
+                    1870.7777777777778,
+                    2943.6666666666665
+                ],
+                [
+                    1926.3333333333335,
+                    3010.3333333333335
+                ],
+                [
+                    1904.1111111111113,
+                    3054.777777777778
+                ],
+                [
+                    1776.3333333333335,
+                    2943.6666666666665
+                ],
+                [
+                    1626.3333333333335,
+                    2921.4444444444443
+                ],
+                [
+                    1643.0,
+                    2888.1111111111113
+                ],
+                [
+                    1715.2222222222222,
+                    2882.5555555555557
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "019192.jpg",
+            "labels": [
+                "target"
+            ]
+        }
+    ],
+    "imagePath": "019192.jpg",
+    "imageHeight": 3504,
+    "imageWidth": 2336,
+    "version": "5.9.1"
+}

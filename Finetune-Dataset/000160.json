@@ -1,0 +1,220 @@
+{
+    "text": [
+        "Identify the two-man team using vegetation-based concealment.",
+        "Pinpoint the hostile personnel who are blending into the high-grass environment.",
+        "Which individuals are set up in an ambush position using ghillie suits?",
+        "Tag all dismounted threats that are nearly invisible due to their advanced personal camouflage.",
+        "Locate the reconnaissance or sniper element hidden in this brush."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "target",
+            "points": [
+                [
+                    134.0,
+                    610.5
+                ],
+                [
+                    78.0,
+                    585.5
+                ],
+                [
+                    107.0,
+                    504.5
+                ],
+                [
+                    108.0,
+                    469.5
+                ],
+                [
+                    79.0,
+                    464.5
+                ],
+                [
+                    80.0,
+                    398.5
+                ],
+                [
+                    100.0,
+                    382.5
+                ],
+                [
+                    106.0,
+                    368.5
+                ],
+                [
+                    77.0,
+                    354.5
+                ],
+                [
+                    87.0,
+                    266.5
+                ],
+                [
+                    80.0,
+                    194.5
+                ],
+                [
+                    97.0,
+                    133.5
+                ],
+                [
+                    95.0,
+                    81.5
+                ],
+                [
+                    137.0,
+                    44.5
+                ],
+                [
+                    203.0,
+                    88.5
+                ],
+                [
+                    213.0,
+                    165.5
+                ],
+                [
+                    191.0,
+                    252.5
+                ],
+                [
+                    188.0,
+                    317.5
+                ],
+                [
+                    188.0,
+                    354.5
+                ],
+                [
+                    221.0,
+                    398.5
+                ],
+                [
+                    277.0,
+                    500.5
+                ],
+                [
+                    256.0,
+                    525.5
+                ],
+                [
+                    234.0,
+                    523.5
+                ],
+                [
+                    216.0,
+                    508.5
+                ],
+                [
+                    202.0,
+                    505.5
+                ],
+                [
+                    192.0,
+                    489.5
+                ],
+                [
+                    175.0,
+                    496.5
+                ],
+                [
+                    155.0,
+                    465.5
+                ],
+                [
+                    173.0,
+                    586.5
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "000160.jpg",
+            "labels": [
+                "target"
+            ]
+        },
+        {
+            "label": "target",
+            "points": [
+                [
+                    384.0,
+                    133.5
+                ],
+                [
+                    349.0,
+                    176.5
+                ],
+                [
+                    323.0,
+                    250.5
+                ],
+                [
+                    289.0,
+                    302.5
+                ],
+                [
+                    308.0,
+                    520.5
+                ],
+                [
+                    394.0,
+                    630.5
+                ],
+                [
+                    425.0,
+                    574.5
+                ],
+                [
+                    415.0,
+                    513.5
+                ],
+                [
+                    447.0,
+                    483.5
+                ],
+                [
+                    446.0,
+                    561.5
+                ],
+                [
+                    508.0,
+                    577.5
+                ],
+                [
+                    491.0,
+                    359.5
+                ],
+                [
+                    613.0,
+                    372.5
+                ],
+                [
+                    434.0,
+                    279.5
+                ],
+                [
+                    422.0,
+                    261.5
+                ],
+                [
+                    430.0,
+                    188.5
+                ],
+                [
+                    411.0,
+                    152.5
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "000160.jpg",
+            "labels": [
+                "target"
+            ]
+        }
+    ],
+    "imagePath": "000160.jpg",
+    "imageHeight": 640,
+    "imageWidth": 640,
+    "version": "5.9.1"
+}

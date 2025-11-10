@@ -1,0 +1,142 @@
+{
+    "text": [
+        "Identify the main heavy-armor platform in this image.",
+        "Pinpoint the asset that provides high-explosive direct fire support for ground forces.",
+        "Which vehicle is the core component of an armored spearhead?",
+        "Tag the main battle platform most vulnerable to a top-attack ATGM.",
+        "Show me the tracked, heavily armored vehicle with a large-caliber main gun."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "target",
+            "points": [
+                [
+                    1.0,
+                    582.5
+                ],
+                [
+                    149.0,
+                    628.5
+                ],
+                [
+                    182.0,
+                    617.5
+                ],
+                [
+                    243.0,
+                    552.5
+                ],
+                [
+                    289.0,
+                    546.5
+                ],
+                [
+                    477.0,
+                    609.5
+                ],
+                [
+                    527.0,
+                    607.5
+                ],
+                [
+                    596.0,
+                    502.5
+                ],
+                [
+                    603.0,
+                    459.5
+                ],
+                [
+                    630.0,
+                    439.5
+                ],
+                [
+                    618.0,
+                    372.5
+                ],
+                [
+                    530.0,
+                    293.5
+                ],
+                [
+                    500.0,
+                    262.5
+                ],
+                [
+                    440.0,
+                    243.5
+                ],
+                [
+                    402.0,
+                    163.5
+                ],
+                [
+                    415.0,
+                    117.5
+                ],
+                [
+                    435.0,
+                    104.5
+                ],
+                [
+                    509.0,
+                    87.5
+                ],
+                [
+                    514.0,
+                    78.5
+                ],
+                [
+                    597.0,
+                    56.5
+                ],
+                [
+                    618.0,
+                    73.5
+                ],
+                [
+                    639.0,
+                    59.5
+                ],
+                [
+                    637.0,
+                    1.5
+                ],
+                [
+                    596.0,
+                    0.5
+                ],
+                [
+                    577.0,
+                    11.5
+                ],
+                [
+                    498.0,
+                    21.5
+                ],
+                [
+                    386.0,
+                    33.5
+                ],
+                [
+                    354.31081081081084,
+                    0.0
+                ],
+                [
+                    0.0,
+                    0.5
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "016238.jpg",
+            "labels": [
+                "target"
+            ]
+        }
+    ],
+    "imagePath": "016238.jpg",
+    "imageHeight": 640,
+    "imageWidth": 640,
+    "version": "5.9.1"
+}

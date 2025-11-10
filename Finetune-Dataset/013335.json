@@ -1,0 +1,82 @@
+{
+    "text": [
+        "Pinpoint the primary mechanized assault asset operating in this built-up area.",
+        "Locate the asset most vulnerable to a close-quarters anti-armor ambush from the surrounding structures.",
+        "Identify the source of heavy direct-fire support in this village.",
+        "Highlight the heavy tracked platform with high fuel consumption.",
+        "What is the most significant ground-based threat maneuvering on this route?"
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "Target",
+            "points": [
+                [
+                    586.7631578947369,
+                    419.36842105263156
+                ],
+                [
+                    507.8157894736842,
+                    470.2456140350877
+                ],
+                [
+                    500.7982456140351,
+                    529.8947368421052
+                ],
+                [
+                    570.9736842105264,
+                    579.0175438596491
+                ],
+                [
+                    716.5877192982457,
+                    614.1052631578947
+                ],
+                [
+                    841.1491228070175,
+                    659.719298245614
+                ],
+                [
+                    879.7456140350878,
+                    631.6491228070175
+                ],
+                [
+                    958.6929824561404,
+                    587.7894736842105
+                ],
+                [
+                    983.2543859649123,
+                    554.4561403508771
+                ],
+                [
+                    1055.1842105263158,
+                    566.7368421052631
+                ],
+                [
+                    1065.7105263157896,
+                    547.438596491228
+                ],
+                [
+                    990.2719298245614,
+                    528.140350877193
+                ],
+                [
+                    988.5175438596491,
+                    510.59649122807014
+                ],
+                [
+                    779.7456140350878,
+                    421.12280701754383
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "013335.jpg",
+            "labels": [
+                "Target"
+            ]
+        }
+    ],
+    "imagePath": "013335.jpg",
+    "imageHeight": 1544,
+    "imageWidth": 2863,
+    "version": "5.9.1"
+}

@@ -1,0 +1,74 @@
+{
+    "text": [
+        "Identify the strategic, intercontinental asset that relies on low-observable characteristics.",
+        "Pinpoint the 'flying wing' platform designed to penetrate advanced air defenses.",
+        "Which asset in the sky is a high-value, heavy payload, stealth-capable bomber?",
+        "Tag the platform with no vertical stabilizers, designed for minimal radar cross-section.",
+        "Locate the strategic-range, deep-strike asset."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "target",
+            "points": [
+                [
+                    2331.7777777777774,
+                    1153.0
+                ],
+                [
+                    2170.6666666666665,
+                    1364.111111111111
+                ],
+                [
+                    2376.222222222222,
+                    1591.888888888889
+                ],
+                [
+                    2409.555555555555,
+                    1553.0
+                ],
+                [
+                    2337.333333333333,
+                    1480.7777777777778
+                ],
+                [
+                    2370.6666666666665,
+                    1436.3333333333333
+                ],
+                [
+                    2348.4444444444443,
+                    1419.6666666666665
+                ],
+                [
+                    2370.6666666666665,
+                    1358.5555555555554
+                ],
+                [
+                    2359.555555555555,
+                    1358.5555555555554
+                ],
+                [
+                    2370.6666666666665,
+                    1325.2222222222222
+                ],
+                [
+                    2309.555555555555,
+                    1264.111111111111
+                ],
+                [
+                    2376.222222222222,
+                    1203.0
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "018807.jpg",
+            "labels": [
+                "target"
+            ]
+        }
+    ],
+    "imagePath": "018807.jpg",
+    "imageHeight": 3456,
+    "imageWidth": 4608,
+    "version": "5.9.1"
+}

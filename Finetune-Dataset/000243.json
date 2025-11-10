@@ -1,0 +1,82 @@
+{
+    "text": [
+        "Pinpoint the concealed threat adjacent to the pathway.",
+        "Where is the L-shaped ambush position established?",
+        "Identify the man-made object designed to blend in with this specific foliage.",
+        "What object is breaking the natural outline of the forest floor?",
+        "Locate the entity with the capability to interdict movement on this trail."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "000243",
+            "points": [
+                [
+                    324.6511627906977,
+                    387.4418604651163
+                ],
+                [
+                    312.093023255814,
+                    381.3953488372093
+                ],
+                [
+                    327.44186046511635,
+                    332.09302325581393
+                ],
+                [
+                    353.9534883720931,
+                    291.16279069767444
+                ],
+                [
+                    414.88372093023264,
+                    317.2093023255814
+                ],
+                [
+                    481.86046511627916,
+                    320.4651162790698
+                ],
+                [
+                    519.5348837209303,
+                    328.3720930232558
+                ],
+                [
+                    537.6744186046512,
+                    309.7674418604651
+                ],
+                [
+                    573.4883720930234,
+                    340.4651162790698
+                ],
+                [
+                    613.4883720930234,
+                    378.6046511627907
+                ],
+                [
+                    612.0930232558139,
+                    442.3255813953488
+                ],
+                [
+                    577.2093023255813,
+                    458.13953488372096
+                ],
+                [
+                    504.6511627906977,
+                    450.69767441860466
+                ],
+                [
+                    371.16279069767444,
+                    406.9767441860465
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "000243.jpg",
+            "labels": [
+                "000243"
+            ]
+        }
+    ],
+    "imagePath": "000243.jpg",
+    "imageHeight": 640,
+    "imageWidth": 640,
+    "version": "5.9.1"
+}

@@ -1,0 +1,62 @@
+{
+    "text": [
+        "Identify the individual adjusting the optic's settings.",
+        "Locate the operator of this weapon system.",
+        "Who is preparing this equipment for engagement?",
+        "Pinpoint the user of this rifle scope.",
+        "What part of a hostile entity is visible here?"
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "000186",
+            "points": [
+                [
+                    57.67441860465118,
+                    388.3720930232558
+                ],
+                [
+                    77.2093023255814,
+                    336.27906976744185
+                ],
+                [
+                    106.51162790697674,
+                    271.16279069767444
+                ],
+                [
+                    160.46511627906978,
+                    227.4418604651163
+                ],
+                [
+                    160.93023255813955,
+                    130.69767441860466
+                ],
+                [
+                    165.58139534883725,
+                    1.3953488372093026
+                ],
+                [
+                    637.2093023255813,
+                    0.0
+                ],
+                [
+                    638.6046511627908,
+                    636.2790697674419
+                ],
+                [
+                    24.18604651162792,
+                    635.3488372093024
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "000186.jpg",
+            "labels": [
+                "000186"
+            ]
+        }
+    ],
+    "imagePath": "000186.jpg",
+    "imageHeight": 640,
+    "imageWidth": 640,
+    "version": "5.9.1"
+}

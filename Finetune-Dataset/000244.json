@@ -1,0 +1,94 @@
+{
+    "text": [
+        "Identify the primary point of danger for a patrol moving down this trail.",
+        "Where is the observation post (OP) or ambush position established in this sector?",
+        "Pinpoint the concealed element that has established overwatch on this path.",
+        "What object in this image is positioned to interdict movement along the dirt track?",
+        "Locate the source of potential hostile observation or engagement."
+    ],
+    "is_sentence": true,
+    "shapes": [
+        {
+            "label": "000244",
+            "points": [
+                [
+                    321.86046511627904,
+                    402.7906976744186
+                ],
+                [
+                    313.4883720930233,
+                    366.9767441860465
+                ],
+                [
+                    324.1860465116279,
+                    351.62790697674416
+                ],
+                [
+                    333.02325581395354,
+                    333.95348837209303
+                ],
+                [
+                    343.25581395348837,
+                    318.13953488372096
+                ],
+                [
+                    364.6511627906977,
+                    299.5348837209302
+                ],
+                [
+                    384.1860465116279,
+                    317.2093023255814
+                ],
+                [
+                    421.3953488372094,
+                    342.3255813953488
+                ],
+                [
+                    474.88372093023264,
+                    345.1162790697674
+                ],
+                [
+                    499.0697674418605,
+                    364.1860465116279
+                ],
+                [
+                    549.3023255813953,
+                    352.09302325581393
+                ],
+                [
+                    555.3488372093025,
+                    387.90697674418607
+                ],
+                [
+                    607.9069767441861,
+                    436.27906976744185
+                ],
+                [
+                    597.6744186046512,
+                    474.8837209302326
+                ],
+                [
+                    530.2325581395348,
+                    482.3255813953488
+                ],
+                [
+                    480.46511627906983,
+                    486.51162790697674
+                ],
+                [
+                    441.3953488372094,
+                    454.8837209302326
+                ]
+            ],
+            "shape_type": "polygon",
+            "image_name": "000244.jpg",
+            "labels": [
+                "000244"
+            ]
+        }
+    ],
+    "imagePath": "000244.jpg",
+    "imageHeight": 640,
+    "imageWidth": 640,
+    "version": "5.9.1"
+}
