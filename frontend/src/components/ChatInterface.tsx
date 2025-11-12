@@ -31,6 +31,7 @@ interface Message {
   segmentationMask?: string;
   conversation: string;
 }
+
 interface ChatInterfaceProps {
   conversationId: string | null;
   onStatusChange?: (status: 'ACTIVE' | 'IDLE' | 'ANALYSING') => void;
@@ -174,6 +175,7 @@ const ChatInterface = ({
     reader.readAsDataURL(file);
   };
 
+  // Updated: Handles both /uploads/... and data:image/...
   const getImageUrl = (path: string) => {
     if (path.startsWith('data:')) return path;
     return `${BACKEND_URL}${path}`;

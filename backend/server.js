@@ -15,6 +15,8 @@ const User = require('./models/User.js');
 const Conversation = require('./models/Conversation.js');
 const Message = require('./models/Message.js');
 const jwt = require('jsonwebtoken');
+const fetch = require('node-fetch');      // CJS
+const FormData = require('form-data');
 
 dotenv.config();
 connectDB();
@@ -41,10 +43,6 @@ app.use('/api/conversations', conversationRoutes);
 const uploadsDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadsDir)) fs.mkdirSync(uploadsDir);
 app.use('/uploads', express.static(uploadsDir));
-
-const resultsDir = path.join(__dirname, 'results');
-if (!fs.existsSync(resultsDir)) fs.mkdirSync(resultsDir);
-app.use('/results', express.static(resultsDir));
 
 // ---------- SOCKET.IO ----------
 const server = http.createServer(app);
@@ -86,7 +84,7 @@ io.on('connection', (socket) => {
         await Conversation.findByIdAndUpdate(convoId, { updatedAt: Date.now() });
       }
 
-      // 2. Save uploaded image to /uploads ONLY
+      // 2. Save uploaded image
       let imageUrl = null;
       if (image) {
         const base64 = image.split(';base64,').pop();
@@ -107,23 +105,38 @@ io.on('connection', (socket) => {
       const savedUser = await userMsg.save();
       io.to(socket.user._id.toString()).emit('messageReceived', savedUser);
 
-      // 4. Wait 2.5s
-      await new Promise(r => setTimeout(r, 2500));
+      // 4. CALL FASTAPI LISA SERVER
+      let maskBase64 = null;
+      if (image) {
+        const form = new FormData();
+        form.append('prompt', content);
 
-      // 5. GET THE IMAGE FROM /results (you placed it manually)
-      const resultFiles = fs.readdirSync(resultsDir).filter(f => /\.(png|jpg|jpeg|webp)$/i.test(f));
-      if (resultFiles.length === 0) {
-        throw new Error('No result image in backend/results/');
+        const imageBuffer = fs.readFileSync(path.join(uploadsDir, path.basename(imageUrl)));
+        form.append('image', imageBuffer, {
+          filename: path.basename(imageUrl),
+          contentType: `image/${path.extname(imageUrl).slice(1)}`,
+        });
+
+        const fastapiRes = await fetch('https://preinterpretative-jaliyah-nonadjacent.ngrok-free.dev/segment/', {
+          method: 'POST',
+          body: form,
+        });
+
+        if (!fastapiRes.ok) {
+          const errText = await fastapiRes.text();
+          throw new Error(`FastAPI error ${fastapiRes.status}: ${errText}`);
+        }
+
+        const maskArrayBuffer = await fastapiRes.arrayBuffer();
+        maskBase64 = `data:image/jpeg;base64,${Buffer.from(maskArrayBuffer).toString('base64')}`;
       }
-      const resultFilename = resultFiles[0]; // Use the FIRST image in results/
-      const maskUrl = `/results/${resultFilename}`;
 
-      // 6. Assistant reply with ONLY the result image
+      // 5. Save assistant reply with mask
       const assistantMsg = new Message({
         conversation: convoId,
         role: 'assistant',
-        content: 'Sure the segmentation result is ready. See the mask below.',
-        segmentationMask: maskUrl,
+        content: 'Segmentation result ready. See the mask below.',
+        segmentationMask: maskBase64,
       });
       const savedAssistant = await assistantMsg.save();
       io.to(socket.user._id.toString()).emit('messageReceived', savedAssistant);
