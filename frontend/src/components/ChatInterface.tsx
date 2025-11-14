@@ -2,13 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Send,
-  Upload,
-  X,
-  Download,
-  Layers,
-  ImagePlus,
-  FileImage,
+  Send, Upload, X, Download, Layers, ImagePlus, FileImage,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -22,14 +16,22 @@ import { useAuth } from '@/context/AuthContext';
 import { io, Socket } from 'socket.io-client';
 import axios from 'axios';
 
+interface ClipResult {
+  threatScore: number;
+  topThreat: string;
+  justification: string;
+  topExplanations: { prompt: string; score: number }[];
+}
+
 interface Message {
   _id: string;
   role: 'user' | 'assistant';
   content: string;
   image?: string;
-  createdAt: string;
   segmentationMask?: string;
+  createdAt: string;
   conversation: string;
+  clipResult?: ClipResult | null;
 }
 
 interface ChatInterfaceProps {
@@ -41,15 +43,6 @@ interface ChatInterfaceProps {
 const SOCKET_URL = 'http://localhost:5001';
 const API_URL = 'http://localhost:5001/api/conversations';
 const BACKEND_URL = 'http://localhost:5001';
-
-interface MessageBubbleProps {
-  id: string;
-  role: 'user' | 'assistant';
-  content: string;
-  image?: string;
-  timestamp: Date;
-  segmentationMask?: string;
-}
 
 const ChatInterface = ({
   conversationId,
@@ -71,35 +64,42 @@ const ChatInterface = ({
   const socketRef = useRef<Socket | null>(null);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
+  // === UPLOAD IMAGE ===
+  const uploadImage = async (file: File): Promise<string> => {
+    const form = new FormData();
+    form.append('file', file);
+    const res = await axios.post(`${BACKEND_URL}/api/upload`, form, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    });
+    return res.data.imageUrl;
+  };
+
+  // === SOCKET.IO ===
   useEffect(() => {
     if (!token) return;
     const socket = io(SOCKET_URL, { auth: { token } });
     socketRef.current = socket;
 
-    socket.on('messageReceived', (newMessage: Message) => {
-      setMessages((prev) => [...prev, newMessage]);
+    socket.on('messageReceived', (msg: Message) => {
+      setMessages((prev) => [...prev, msg]);
       onStatusChange?.('ACTIVE');
-      if (messages.length === 0 && newMessage.role === 'user') {
-        onNewConversation(newMessage.conversation);
+      if (messages.length === 0 && msg.role === 'user') {
+        onNewConversation(msg.conversation);
       }
     });
 
-    socket.on('newConversation', (newConvo) => {
-      onNewConversation(newConvo._id);
+    socket.on('newConversation', (convo) => {
+      onNewConversation(convo._id);
     });
 
     socket.on('messageError', (err) => {
       toast({ title: 'Error', description: err.message, variant: 'destructive' });
-      onStatusChange?.('ACTIVE');
-    });
-
-    socket.on('connect_error', (err) => {
-      toast({ title: 'Connection Error', description: 'Server not running.', variant: 'destructive' });
     });
 
     return () => { socket.disconnect(); };
   }, [token, onStatusChange, onNewConversation, messages.length, toast]);
 
+  // === LOAD MESSAGES ===
   useEffect(() => {
     const fetch = async () => {
       if (!conversationId || !token) {
@@ -111,13 +111,14 @@ const ChatInterface = ({
           headers: { Authorization: `Bearer ${token}` },
         });
         setMessages(data);
-      } catch (err) {
+      } catch {
         toast({ title: 'Error', description: 'Failed to load history.', variant: 'destructive' });
       }
     };
     fetch();
   }, [conversationId, token, toast]);
 
+  // === AUTO SCROLL ===
   useEffect(() => {
     setTimeout(() => {
       if (scrollAreaRef.current) {
@@ -127,6 +128,7 @@ const ChatInterface = ({
     }, 100);
   }, [messages]);
 
+  // === SEND MESSAGE ===
   const handleSend = () => {
     if ((!inputValue.trim() && !uploadedImage) || !socketRef.current) return;
     onStatusChange?.('ANALYSING');
@@ -140,26 +142,26 @@ const ChatInterface = ({
     setUploadedFileName(null);
   };
 
-  const handleExport = () => {
-    toast({ title: 'Exported', description: 'Session saved.' });
-  };
-
-  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  // === IMAGE UPLOAD (HTTP) ===
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.size > 10 * 1024 * 1024) {
       toast({ title: 'Too Large', description: 'Max 10MB', variant: 'destructive' });
       return;
     }
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      setUploadedImage(ev.target?.result as string);
+    try {
+      const imageUrl = await uploadImage(file);
+      setUploadedImage(imageUrl);
       setUploadedFileName(file.name);
-    };
-    reader.readAsDataURL(file);
+      toast({ title: 'Uploaded', description: 'Image ready.' });
+    } catch {
+      toast({ title: 'Upload Failed', description: 'Try again.', variant: 'destructive' });
+    }
   };
 
-  const handleDrop = (e: React.DragEvent) => {
+  // === DRAG & DROP ===
+  const handleDrop = async (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(false);
     const file = e.dataTransfer.files[0];
@@ -167,20 +169,23 @@ const ChatInterface = ({
       toast({ title: 'Too Large', description: 'Max 10MB', variant: 'destructive' });
       return;
     }
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      setUploadedImage(ev.target?.result as string);
+    try {
+      const imageUrl = await uploadImage(file);
+      setUploadedImage(imageUrl);
       setUploadedFileName(file.name);
-    };
-    reader.readAsDataURL(file);
+      toast({ title: 'Uploaded', description: 'Image ready.' });
+    } catch {
+      toast({ title: 'Upload Failed', description: 'Try again.', variant: 'destructive' });
+    }
   };
 
-  // Updated: Handles both /uploads/... and data:image/...
+  // === IMAGE URL HELPER ===
   const getImageUrl = (path: string) => {
-    if (path.startsWith('data:')) return path;
-    return `${BACKEND_URL}${path}`;
+    if (!path) return '';
+    return path.startsWith('/uploads') ? `${BACKEND_URL}${path}` : path;
   };
 
+  // === VIEWER ===
   const openSegmentationViewer = (original: string, mask: string) => {
     setViewerData({ original: getImageUrl(original), mask: getImageUrl(mask) });
     setViewerOpen(true);
@@ -210,13 +215,7 @@ const ChatInterface = ({
                 </Label>
               </div>
             </div>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleExport}
-              disabled={messages.length === 0}
-              className="gap-2 font-mono text-xs"
-            >
+            <Button variant="outline" size="sm" onClick={() => toast({ title: 'Exported', description: 'Session saved.' })} disabled={messages.length === 0} className="gap-2 font-mono text-xs">
               <Download className="w-3 h-3" />
               EXPORT SESSION
             </Button>
@@ -238,34 +237,61 @@ const ChatInterface = ({
                 </p>
               </motion.div>
             ) : (
-              messages.map((msg) => {
-                const props: MessageBubbleProps = {
-                  id: msg._id,
-                  role: msg.role,
-                  content: msg.content,
-                  image: msg.image ? getImageUrl(msg.image) : undefined,
-                  segmentationMask: msg.segmentationMask ? getImageUrl(msg.segmentationMask) : undefined,
-                  timestamp: new Date(msg.createdAt),
-                };
-                return (
-                  <div key={msg._id}>
-                    <MessageBubble message={props} />
-                    {msg.segmentationMask && msg.image && (
-                      <div className="mt-2 flex justify-end">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="gap-2 font-mono text-xs"
-                          onClick={() => openSegmentationViewer(msg.image!, msg.segmentationMask!)}
-                        >
-                          <Layers className="w-4 h-4" />
-                          VIEW_OVERLAY
-                        </Button>
+              messages.map((msg) => (
+                <div key={msg._id}>
+                  <MessageBubble
+                    message={{
+                      id: msg._id,
+                      role: msg.role,
+                      content: msg.content,
+                      image: msg.image ? getImageUrl(msg.image) : undefined,
+                      segmentationMask: msg.segmentationMask ? getImageUrl(msg.segmentationMask) : undefined,
+                      timestamp: new Date(msg.createdAt),
+                      clipResult: msg.clipResult,
+                    }}
+                  />
+
+                  {msg.segmentationMask && msg.image && (
+                    <div className="mt-2 flex justify-end">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="gap-2 font-mono text-xs"
+                        onClick={() => openSegmentationViewer(msg.image!, msg.segmentationMask!)}
+                      >
+                        <Layers className="w-4 h-4" />
+                        VIEW_OVERLAY
+                      </Button>
+                    </div>
+                  )}
+
+                  {msg.clipResult && (
+                    <div className="mt-4 p-4 bg-gray-900 rounded-lg border border-purple-600 text-sm">
+                      <div className="flex justify-between items-center mb-2">
+                        <p className="font-bold text-red-400">
+                          Threat Score: <span className="text-xl">{msg.clipResult.threatScore.toFixed(1)}</span>/100
+                        </p>
+                        <p className="text-sm font-mono">Top: {msg.clipResult.topThreat}</p>
                       </div>
-                    )}
-                  </div>
-                );
-              })
+                      <p className="mt-2 leading-relaxed whitespace-pre-wrap text-gray-300">
+                        {msg.clipResult.justification}
+                      </p>
+                      {msg.clipResult.topExplanations && msg.clipResult.topExplanations.length > 0 && (
+                        <div className="mt-3 text-xs text-gray-500">
+                          <p className="font-bold">Top Matches:</p>
+                          <ul className="list-disc list-inside space-y-1">
+                            {msg.clipResult.topExplanations.map((exp, i) => (
+                              <li key={i}>
+                                {exp.prompt} — <span className="text-green-400">{exp.score.toFixed(1)}%</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))
             )}
           </div>
         </ScrollArea>
@@ -281,7 +307,7 @@ const ChatInterface = ({
                   className="mb-3 p-3 bg-sidebar border border-primary/30 rounded-lg inline-flex items-center gap-3"
                 >
                   <div className="relative">
-                    <img src={uploadedImage} alt="preview" className="h-16 w-16 rounded border border-primary object-cover glow-primary" />
+                    <img src={getImageUrl(uploadedImage)} alt="preview" className="h-16 w-16 rounded border border-primary object-cover glow-primary" />
                     <div className="absolute -top-1 -left-1 p-1 rounded-full bg-primary">
                       <FileImage className="w-3 h-3 text-primary-foreground" />
                     </div>

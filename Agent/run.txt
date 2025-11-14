@@ -1,0 +1,6 @@
+1.pip install requirements.txt
+
+
+
+2.cd Agent
+>> uvicorn app.py:app --reload --port=8001

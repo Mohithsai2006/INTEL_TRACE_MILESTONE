@@ -1,3 +1,4 @@
+// backend/models/Message.js
 const mongoose = require('mongoose');
 
 const messageSchema = mongoose.Schema(
@@ -16,20 +17,14 @@ const messageSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    image: {
-      type: String, // Will store the path to the image, e.g., /uploads/image.png
-      required: false,
-    },
-    segmentationMask: {
-      type: String, // Will store the path to the generated mask
-      required: false,
+    image: { type: String },
+    segmentationMask: { type: String },
+    clipResult: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'ClipResult',
     },
   },
-  {
-    timestamps: true,
-  }
+  { timestamps: true }
 );
 
-const Message = mongoose.model('Message', messageSchema);
-
-module.exports = Message;
+module.exports = mongoose.model('Message', messageSchema);

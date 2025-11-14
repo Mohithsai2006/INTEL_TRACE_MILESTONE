@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IntelTrace Mask Analyzer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white font-mono min-h-screen">
+
+<div class="max-w-5xl mx-auto p-6">
+
+  <h1 class="text-3xl font-bold text-red-500 mb-6">[INTELTRACE MASK ANALYZER]</h1>
+  <p class="text-sm text-gray-400 mb-6">Upload a <strong>masked image</strong> (highlighting target region).</p>
+
+  <!-- Upload Form -->
+  <form id="uploadForm" class="bg-gray-800 p-6 rounded-lg border border-gray-700 space-y-4">
+    <div>
+      <label class="block text-sm font-bold text-yellow-400 mb-2">MASKED IMAGE</label>
+      <input type="file" name="file" accept="image/*" required 
+             class="block w-full text-sm text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded 
+                    file:border-0 file:text-sm file:font-semibold file:bg-yellow-600 file:text-white 
+                    hover:file:bg-yellow-700"/>
+    </div>
+    <div>
+      <label class="block text-sm font-bold text-cyan-400 mb-2">OPTIONAL QUERY</label>
+      <input type="text" name="query" placeholder="e.g. find tanks near border" 
+             class="w-full px-4 py-2 bg-gray-700 rounded border border-gray-600 text-white"/>
+    </div>
+    <button type="submit" 
+            class="px-6 py-2 bg-green-600 hover:bg-green-700 rounded font-bold">
+      [ANALYZE MASK]
+    </button>
+  </form>
+
+  <!-- Results -->
+  <div id="results" class="hidden mt-8 space-y-6">
+    <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+      <p class="text-sm text-gray-400 mb-2">MASKED IMAGE (REGION OF INTEREST)</p>
+      <img id="maskedImg" class="w-full rounded border border-yellow-600" />
+    </div>
+
+    <div class="bg-gray-800 p-5 rounded-lg border" 
+         :class="threatScore > 70 ? 'border-red-600' : threatScore > 40 ? 'border-yellow-600' : 'border-green-600'">
+      <p><strong>Threat Score:</strong> <span id="score" class="text-xl font-bold"></span>/100</p>
+      <p><strong>Top Match:</strong> <span id="topThreat"></span></p>
+    </div>
+
+    <!-- RICH JUSTIFICATION -->
+    <div class="bg-gray-900 p-5 rounded-lg border border-purple-600">
+      <p class="text-purple-400 font-bold mb-3">DETAILED JUSTIFICATION</p>
+      <p id="justification" class="text-sm leading-relaxed whitespace-pre-wrap"></p>
+    </div>
+
+    <!-- Top 3 Explanations -->
+    <div class="bg-gray-800 p-4 rounded-lg border border-gray-700">
+      <p class="font-bold text-yellow-400 mb-2">TOP 3 CLIP MATCHES</p>
+      <ul id="explanations" class="space-y-1 text-sm"></ul>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('uploadForm').onsubmit = async (e) => {
+  e.preventDefault();
+  const form = new FormData(e.target);
+  
+  const res = await fetch('/analyze', {
+    method: 'POST',
+    body: form
+  });
+  const data = await res.json();
+
+  // Show results
+  document.getElementById('maskedImg').src = data.masked_image + "?t=" + Date.now();
+  document.getElementById('score').textContent = data.threat_score;
+  document.getElementById('topThreat').textContent = data.top_threat;
+  document.getElementById('justification').textContent = data.justification;
+
+  const expList = document.getElementById('explanations');
+  expList.innerHTML = '';
+  data.top_explanations.forEach(exp => {
+    const li = document.createElement('li');
+    li.innerHTML = `<strong>${exp.prompt}</strong> — <span class="text-green-400">${exp.score}%</span>`;
+    expList.appendChild(li);
+  });
+
+  document.getElementById('results').classList.remove('hidden');
+};
+</script>
+
+</body>
+</html> 
